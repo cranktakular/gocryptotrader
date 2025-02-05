@@ -60,7 +60,7 @@ func (p *Poloniex) SetDefaults() {
 			REST:      true,
 			Websocket: true,
 			RESTCapabilities: protocol.Features{
-				TickerBatching:        true,
+				TickerBatching:        map[asset.Item]bool{asset.Spot: true},
 				TickerFetching:        true,
 				KlineFetching:         true,
 				TradeFetching:         true,

@@ -85,8 +85,12 @@ func (h *HUOBI) SetDefaults() {
 			REST:      true,
 			Websocket: true,
 			RESTCapabilities: protocol.Features{
-				TickerFetching:                 true,
-				TickerBatching:                 true,
+				TickerFetching: true,
+				TickerBatching: map[asset.Item]bool{
+					asset.Spot:                true,
+					asset.CoinMarginedFutures: true,
+					asset.Futures:             true,
+				},
 				KlineFetching:                  true,
 				TradeFetching:                  true,
 				OrderbookFetching:              true,

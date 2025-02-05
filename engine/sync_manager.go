@@ -570,7 +570,7 @@ func (m *SyncManager) syncTicker(c *currencyPairSyncAgent, e exchange.IBotExchan
 		var result *ticker.Price
 		var err error
 
-		if e.SupportsRESTTickerBatchUpdates() {
+		if e.SupportsRESTTickerBatchUpdates(c.Key.Asset) {
 			m.mux.Lock()
 			batchLastDone, ok := m.tickerBatchLastRequested[key.ExchangeAsset{
 				Exchange: c.Key.Exchange,

@@ -137,7 +137,7 @@ func (c *CustomEx) SupportsAutoPairUpdates() bool {
 }
 
 // SupportsRESTTickerBatchUpdates is a mock method for CustomEx
-func (c *CustomEx) SupportsRESTTickerBatchUpdates() bool {
+func (c *CustomEx) SupportsRESTTickerBatchUpdates(a asset.Item) bool {
 	return false
 }
 

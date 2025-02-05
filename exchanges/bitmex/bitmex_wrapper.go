@@ -80,7 +80,12 @@ func (b *Bitmex) SetDefaults() {
 			REST:      true,
 			Websocket: true,
 			RESTCapabilities: protocol.Features{
-				TickerBatching:      true,
+				TickerBatching: map[asset.Item]bool{
+					asset.Spot:              true,
+					asset.PerpetualContract: true,
+					asset.Futures:           true,
+					asset.Index:             true,
+				},
 				TickerFetching:      true,
 				TradeFetching:       true,
 				OrderbookFetching:   true,

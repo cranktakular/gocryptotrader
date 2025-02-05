@@ -53,7 +53,7 @@ func (b *Bithumb) SetDefaults() {
 		Supports: exchange.FeaturesSupported{
 			REST: true,
 			RESTCapabilities: protocol.Features{
-				TickerBatching:      true,
+				TickerBatching:      map[asset.Item]bool{asset.Spot: true},
 				TickerFetching:      true,
 				TradeFetching:       true,
 				OrderbookFetching:   true,

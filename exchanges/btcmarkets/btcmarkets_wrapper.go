@@ -54,7 +54,7 @@ func (b *BTCMarkets) SetDefaults() {
 			REST:      true,
 			Websocket: true,
 			RESTCapabilities: protocol.Features{
-				TickerBatching:      true,
+				TickerBatching:      map[asset.Item]bool{asset.Spot: true},
 				TickerFetching:      true,
 				TradeFetching:       true,
 				OrderbookFetching:   true,

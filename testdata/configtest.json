@@ -451,7 +451,7 @@
     "supports": {
      "restAPI": true,
      "restCapabilities": {
-      "tickerBatching": true,
+      "tickerBatching": {"spot":true, "margin":true, "coinmarginedfutures":true, "usdtmarginedfutures":true},
       "autoPairUpdates": true
      },
      "websocketAPI": true,
@@ -532,7 +532,7 @@
     "supports": {
      "restAPI": true,
      "restCapabilities": {
-      "tickerBatching": true,
+      "tickerBatching": {"spot":true},
       "autoPairUpdates": true
      },
      "websocketAPI": true,
@@ -639,7 +639,7 @@
     "supports": {
      "restAPI": true,
      "restCapabilities": {
-      "tickerBatching": true,
+      "tickerBatching": {"spot":true, "margin":true, "marginfunding":true},
       "autoPairUpdates": true
      },
      "websocketAPI": true,
@@ -815,7 +815,7 @@
     "supports": {
      "restAPI": true,
      "restCapabilities": {
-      "tickerBatching": true,
+      "tickerBatching": {"spot":true},
       "autoPairUpdates": true
      },
      "websocketAPI": false,
@@ -917,7 +917,7 @@
     "supports": {
      "restAPI": true,
      "restCapabilities": {
-      "tickerBatching": true,
+      "tickerBatching": {"spot":true, "index":true, "futures":true, "perpetualcontract":true},
       "autoPairUpdates": true
      },
      "websocketAPI": true,
@@ -1123,7 +1123,7 @@
     "supports": {
      "restAPI": true,
      "restCapabilities": {
-      "tickerBatching": true,
+      "tickerBatching": {"spot":true, "coinmarginedfutures":true, "usdtmarginedfutures":true, "usdcmarginedfutures":true, "options":true},
       "autoPairUpdates": true
      },
      "websocketAPI": true,
@@ -1505,7 +1505,7 @@
     "supports": {
      "restAPI": true,
      "restCapabilities": {
-      "tickerBatching": true,
+      "tickerBatching": {"spot":true},
       "autoPairUpdates": true
      },
      "websocketAPI": false,
@@ -1607,7 +1607,7 @@
     "supports": {
      "restAPI": true,
      "restCapabilities": {
-      "tickerBatching": true,
+      "tickerBatching": {"spot":true, "margin":true, "cross_margin":true, "futures":true, "delivery":true, "options":true},
       "autoPairUpdates": true
      },
      "websocketAPI": true,
@@ -1768,7 +1768,7 @@
     "supports": {
      "restAPI": true,
      "restCapabilities": {
-      "tickerBatching": true,
+      "tickerBatching": {"spot":true},
       "autoPairUpdates": true
      },
      "websocketAPI": true,
@@ -1874,7 +1874,7 @@
     "supports": {
      "restAPI": true,
      "restCapabilities": {
-      "tickerBatching": true,
+      "tickerBatching": {"spot":true, "futures":true, "coinmarginedfutures":true},
       "autoPairUpdates": true
      },
      "websocketAPI": true,
@@ -1971,7 +1971,7 @@
     "supports": {
      "restAPI": true,
      "restCapabilities": {
-      "tickerBatching": true,
+      "tickerBatching": {"spot":true, "futures":true},
       "autoPairUpdates": true
      },
      "websocketAPI": true,
@@ -2084,7 +2084,7 @@
     "supports": {
      "restAPI": true,
      "restCapabilities": {
-      "tickerBatching": true,
+      "tickerBatching": {"spot":true, "margin":true, "futures":true},
       "autoPairUpdates": true
      },
      "websocketAPI": true,
@@ -2162,7 +2162,7 @@
     "supports": {
      "restAPI": true,
      "restCapabilities": {
-      "tickerBatching": true,
+      "tickerBatching": {"spot":true},
       "autoPairUpdates": true
      },
      "websocketAPI": false,
@@ -2352,7 +2352,7 @@
     "supports": {
      "restAPI": true,
      "restCapabilities": {
-      "tickerBatching": true,
+      "tickerBatching": {"spot":true},
       "autoPairUpdates": true
      },
      "websocketAPI": true,
@@ -2432,7 +2432,7 @@
     "supports": {
      "restAPI": true,
      "restCapabilities": {
-      "tickerBatching": true,
+      "tickerBatching": {"spot":true},
       "autoPairUpdates": true
      },
      "websocketAPI": false,

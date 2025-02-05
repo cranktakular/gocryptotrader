@@ -51,13 +51,13 @@ func TestSupportsRESTTickerBatchUpdates(t *testing.T) {
 			Supports: FeaturesSupported{
 				REST: true,
 				RESTCapabilities: protocol.Features{
-					TickerBatching: true,
+					TickerBatching: map[asset.Item]bool{asset.Spot: true},
 				},
 			},
 		},
 	}
 
-	if !b.SupportsRESTTickerBatchUpdates() {
+	if !b.SupportsRESTTickerBatchUpdates(asset.Spot) {
 		t.Fatal("TestSupportsRESTTickerBatchUpdates returned false")
 	}
 }
@@ -250,7 +250,7 @@ func TestSetFeatureDefaults(t *testing.T) {
 			Supports: FeaturesSupported{
 				REST: true,
 				RESTCapabilities: protocol.Features{
-					TickerBatching: true,
+					TickerBatching: map[asset.Item]bool{asset.Spot: true},
 				},
 				Websocket: true,
 			},
@@ -273,12 +273,12 @@ func TestSetFeatureDefaults(t *testing.T) {
 
 	// Test non migrated features config
 	b.Config.Features.Supports.REST = false
-	b.Config.Features.Supports.RESTCapabilities.TickerBatching = false
+	b.Config.Features.Supports.RESTCapabilities.TickerBatching = map[asset.Item]bool{asset.Spot: false}
 	b.Config.Features.Supports.Websocket = false
 	b.SetFeatureDefaults()
 
 	if !b.Features.Supports.REST ||
-		!b.Features.Supports.RESTCapabilities.TickerBatching ||
+		!b.Features.Supports.RESTCapabilities.TickerBatching[asset.Spot] ||
 		!b.Features.Supports.Websocket {
 		t.Error("incorrect values")
 	}
@@ -691,7 +691,7 @@ func TestGetFeatures(t *testing.T) {
 	if !b.GetSupportedFeatures().RESTCapabilities.AutoPairUpdates {
 		t.Error("auto pair updates should be supported")
 	}
-	if b.GetSupportedFeatures().RESTCapabilities.TickerBatching {
+	if b.GetSupportedFeatures().RESTCapabilities.TickerBatching[asset.Spot] {
 		t.Error("ticker batching shouldn't be supported")
 	}
 }

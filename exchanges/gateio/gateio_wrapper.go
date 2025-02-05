@@ -67,7 +67,14 @@ func (g *Gateio) SetDefaults() {
 			REST:      true,
 			Websocket: true,
 			RESTCapabilities: protocol.Features{
-				TickerBatching:        true,
+				TickerBatching: map[asset.Item]bool{
+					asset.Spot:            true,
+					asset.Futures:         true,
+					asset.Margin:          true,
+					asset.CrossMargin:     true,
+					asset.DeliveryFutures: true,
+					asset.Options:         true,
+				},
 				TickerFetching:        true,
 				KlineFetching:         true,
 				TradeFetching:         true,

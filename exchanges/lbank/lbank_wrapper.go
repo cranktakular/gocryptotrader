@@ -47,7 +47,7 @@ func (l *Lbank) SetDefaults() {
 		Supports: exchange.FeaturesSupported{
 			REST: true,
 			RESTCapabilities: protocol.Features{
-				TickerBatching:      true,
+				TickerBatching:      map[asset.Item]bool{asset.Spot: true},
 				TickerFetching:      true,
 				KlineFetching:       true,
 				TradeFetching:       true,

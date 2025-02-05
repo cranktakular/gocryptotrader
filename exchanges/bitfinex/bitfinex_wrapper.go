@@ -77,7 +77,11 @@ func (b *Bitfinex) SetDefaults() {
 			REST:      true,
 			Websocket: true,
 			RESTCapabilities: protocol.Features{
-				TickerBatching:                    true,
+				TickerBatching: map[asset.Item]bool{
+					asset.Spot:          true,
+					asset.Margin:        true,
+					asset.MarginFunding: true,
+				},
 				TickerFetching:                    true,
 				OrderbookFetching:                 true,
 				AutoPairUpdates:                   true,

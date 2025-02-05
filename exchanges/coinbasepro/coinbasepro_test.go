@@ -2,7 +2,9 @@ package coinbasepro
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
+	"fmt"
 	"net/http"
 	"os"
 	"testing"
@@ -40,8 +42,27 @@ const (
 	canManipulateRealOrders = false
 )
 
-func TestMain(_ *testing.M) {
+func TestMain(m *testing.M) {
 	os.Exit(0) // Disable full test suite until PR #1381 is merged as more API endpoints have been deprecated over time
+	// os.Exit(m.Run())
+}
+
+func TestSilly(t *testing.T) {
+	type TB struct {
+		TickerBatching map[asset.Item]bool `json:"tickerBatching,omitempty"`
+	}
+	data := TB{
+		TickerBatching: map[asset.Item]bool{
+			asset.Spot:    true,
+			asset.Futures: false,
+			asset.Margin:  true,
+			asset.All:     false,
+		},
+	}
+	enc, err := json.Marshal(data)
+	require.NoError(t, err)
+	fmt.Printf("%s\n", enc)
+	fmt.Print(data.TickerBatching[asset.PerpetualSwap])
 }
 
 func TestGetProducts(t *testing.T) {

@@ -79,8 +79,11 @@ func (b *BTSE) SetDefaults() {
 			REST:      true,
 			Websocket: true,
 			RESTCapabilities: protocol.Features{
-				TickerFetching:      true,
-				TickerBatching:      true,
+				TickerFetching: true,
+				TickerBatching: map[asset.Item]bool{
+					asset.Spot:    true,
+					asset.Futures: true,
+				},
 				KlineFetching:       true,
 				TradeFetching:       true,
 				OrderbookFetching:   true,

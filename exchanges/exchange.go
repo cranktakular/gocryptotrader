@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"net"
 	"net/url"
+	"reflect"
 	"sort"
 	"strconv"
 	"strings"
@@ -136,7 +137,7 @@ func (b *Base) SetFeatureDefaults() {
 			b.Config.Features.Supports.REST = b.Features.Supports.REST
 		}
 
-		if b.Features.Supports.RESTCapabilities.TickerBatching != b.Config.Features.Supports.RESTCapabilities.TickerBatching {
+		if !reflect.DeepEqual(b.Features.Supports.RESTCapabilities.TickerBatching, b.Config.Features.Supports.RESTCapabilities.TickerBatching) {
 			b.Config.Features.Supports.RESTCapabilities.TickerBatching = b.Features.Supports.RESTCapabilities.TickerBatching
 		}
 
@@ -185,8 +186,8 @@ func (b *Base) SetSubscriptionsFromConfig() {
 
 // SupportsRESTTickerBatchUpdates returns whether or not the
 // exchange supports REST batch ticker fetching
-func (b *Base) SupportsRESTTickerBatchUpdates() bool {
-	return b.Features.Supports.RESTCapabilities.TickerBatching
+func (b *Base) SupportsRESTTickerBatchUpdates(a asset.Item) bool {
+	return b.Features.Supports.RESTCapabilities.TickerBatching[a]
 }
 
 // SupportsAutoPairUpdates returns whether or not the exchange supports

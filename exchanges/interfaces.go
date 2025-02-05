@@ -161,7 +161,7 @@ type FunctionalityChecker interface {
 	SupportsAsset(assetType asset.Item) bool
 	SupportsREST() bool
 	SupportsWithdrawPermissions(permissions uint32) bool
-	SupportsRESTTickerBatchUpdates() bool
+	SupportsRESTTickerBatchUpdates(a asset.Item) bool
 	IsWebsocketEnabled() bool
 	SupportsWebsocket() bool
 	SupportsAutoPairUpdates() bool

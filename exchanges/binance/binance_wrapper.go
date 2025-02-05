@@ -105,7 +105,12 @@ func (b *Binance) SetDefaults() {
 			Websocket:           true,
 			MaximumOrderHistory: kline.OneDay.Duration() * 7,
 			RESTCapabilities: protocol.Features{
-				TickerBatching:                 true,
+				TickerBatching: map[asset.Item]bool{
+					asset.Spot:                true,
+					asset.Margin:              true,
+					asset.CoinMarginedFutures: true,
+					asset.USDTMarginedFutures: true,
+				},
 				TickerFetching:                 true,
 				KlineFetching:                  true,
 				OrderbookFetching:              true,

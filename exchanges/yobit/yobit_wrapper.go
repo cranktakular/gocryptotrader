@@ -49,7 +49,7 @@ func (y *Yobit) SetDefaults() {
 			REST:      true,
 			Websocket: false,
 			RESTCapabilities: protocol.Features{
-				TickerBatching:      true,
+				TickerBatching:      map[asset.Item]bool{asset.Spot: true},
 				TickerFetching:      true,
 				TradeFetching:       true,
 				OrderbookFetching:   true,
