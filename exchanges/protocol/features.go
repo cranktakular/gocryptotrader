@@ -92,3 +92,11 @@ func (m *ItemBoolMap) UnmarshalJSON(d []byte) error {
 	*m = final
 	return nil
 }
+
+func (m ItemBoolMap) MarshalJSON() ([]byte, error) {
+	data := make(map[string]bool)
+	for k, v := range m {
+		data[k.String()] = v
+	}
+	return json.Marshal(data)
+}

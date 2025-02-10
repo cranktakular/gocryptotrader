@@ -294,9 +294,7 @@ func (r *Requester) doRequest(ctx context.Context, endpoint EndpointLimit, newRe
 		}
 		if verbose {
 			log.Debugf(log.RequestSys, "HTTP status: %s, Code: %v", resp.Status, resp.StatusCode)
-			if !p.HTTPDebugging {
-				log.Debugf(log.RequestSys, "%s raw response: %s", r.name, string(contents))
-			}
+			log.Debugf(log.RequestSys, "%s raw response: %s", r.name, string(contents))
 		}
 		return unmarshallError
 	}
