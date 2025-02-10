@@ -187,6 +187,10 @@ func (b *Base) SetSubscriptionsFromConfig() {
 // SupportsRESTTickerBatchUpdates returns whether or not the
 // exchange supports REST batch ticker fetching
 func (b *Base) SupportsRESTTickerBatchUpdates(a asset.Item) bool {
+	// This may be a good bit of logic to implement, but the current implementation in wrappers/config assumes we won't go with this
+	// if b.Features.Supports.RESTCapabilities.TickerBatching[asset.All] {
+	// 	return true
+	// }
 	return b.Features.Supports.RESTCapabilities.TickerBatching[a]
 }
 
