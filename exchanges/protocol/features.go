@@ -73,8 +73,10 @@ type TradingRequirements struct {
 	ClientOrderID bool
 }
 
+// ItemBoolMap is a map of asset.Item to bool, primarily to represent features which can vary by asset
 type ItemBoolMap map[asset.Item]bool
 
+// UnmarshalJSON conforms type to the unmarshaler interface
 func (m *ItemBoolMap) UnmarshalJSON(d []byte) error {
 	data := make(map[string]bool)
 	err := json.Unmarshal(d, &data)
@@ -93,6 +95,7 @@ func (m *ItemBoolMap) UnmarshalJSON(d []byte) error {
 	return nil
 }
 
+// MarshalJSON conforms type to the marshaler interface
 func (m ItemBoolMap) MarshalJSON() ([]byte, error) {
 	data := make(map[string]bool)
 	for k, v := range m {
